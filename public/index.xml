@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shaosy</title>
+    <link>https://siyangshao.github.io/</link>
+    <description>Recent content on shaosy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 20 Jul 2023 02:39:53 +0800</lastBuildDate><atom:link href="https://siyangshao.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>about me</title>
+      <link>https://siyangshao.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 2024 21:03:53 +0800</pubDate>
+      
+      <guid>https://siyangshao.github.io/about/</guid>
+      <description>SHAO Siyang Link to heading Learning Computer Engineering in NTUsg, class of 2025. Interested in competitive programming (as NTU ICPC Team member) and still finding area of interest in cs.
+Now living in Singapore.
+Skills Link to heading Technical C++/C/Python/Linux
+Languages Chinese (Native) /English (Basic Fluency)
+Contact Me Link to heading Github: SiyangShao
+Codeforces: shaosy or Luna_Sakurakouji
+Telegram: siyangshao
+E-mail address Link to heading school address: shao0054@e.ntu.edu.sg
+personal address: siyang.</description>
+    </item>
+    
+    <item>
+      <title>PCIe Stress Test</title>
+      <link>https://siyangshao.github.io/posts/pciestress/</link>
+      <pubDate>Thu, 20 Jul 2023 02:39:53 +0800</pubDate>
+      
+      <guid>https://siyangshao.github.io/posts/pciestress/</guid>
+      <description>Monitor PCIe Stress Link to heading Technically, there&amp;rsquo;s no much way to monitor the current PCIe bandwidth occupation. In most situations, the easiest way is to use
+sudo lspci -vvv to check the current PCIe link speed. However, it&amp;rsquo;s not real-time (it will only tell you the PCIe link cap, like PCIe 4.0 x16 ).
+Luckily, if you are using the NVIDIA GPU, you can use
+nvidia-smi dmon -s t to monitor the current PCIe bandwidth occupation.</description>
+    </item>
+    
+  </channel>
+</rss>

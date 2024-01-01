@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+  <title>
+  ICPC Manila · shaosy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Siyang SHAO">
+<meta name="description" content="马尼拉游记 Link to heading Day -1 Link to heading 从NTU打车去樟宜，准备飞去马尼拉。路上还是蛮紧张的，等飞机时不知道该做什么好。到了马尼拉后体会了当地糟糕的公共交通和治安。很晚才到酒店。去麦当劳吃饭，发现物价真的是便宜。在回来的路上一行人去711,还被当成打劫的叫了警察，看到了装甲车。鼠鼠我啊，变成鼠片了捏。
+Day 0 Link to heading 热身赛。上午就去了主办方的学校，但是一直无所事事。华为发了点小礼品，于是就一直在拼乐高，但也拼不好。中饭还不错，马尼拉食物确实还可以。热身赛快乐榜一。晚上华老师请客，披萨炸鸡意面，吃饱饱了。想复习一下的，但貌似也没什么经历了。回看了一下一些题目，写了到网络流就草草去睡了。
+Day 1 Link to heading 早饭还不错。然后等待开始。开场后我们一直很顺，前期唯一没过的题目纠结了十多分钟发现好像被诈骗了，其余的都是1A.这让我们心理优势还是不小。于是非常意外的，成为了全场第一个八题的队伍。然后我去开一道题，感觉很对的做法却WA了。肉眼debug了十几分钟，发现数据其实是指数级增长的。但是可行的数据量却小于1e8,于是手动判断不可行。封榜后没几分钟就过了。这时我们九题，剩下的队伍只有一个八题（一队他们），罚时也比我们更劣。面对最后一道题，应该是个贪心，但因为最后时间不足&#43;没有仔细思考，我们没能想到正确写法，我去草草写了一个然后WA了。队友以为他是对的，抓住最后几分钟想写一发，但是没时间交了（虽然事后证明这个连样例都没法过）。赛后我们还为这个吵了一架，他认为他的做法100%对，是因为我不信任他的implement导致他没时间写。最后发现实际上他的做法并不对，我的错误理解和他的解法是两部分，都要有才能对。
+比赛完了以后就去和一队交流了一下，知道了解法以及他们10题了。恭喜他们能去WF，还是很羡慕的。最后拿了个奖杯，晚上吃了顿，然后回酒店学会了打阿瓦隆&#43;桌游到凌晨。除了最后一题以外，其他的表现堪称完美。从未想过如此优的过程。 Day 2 Link to heading 没什么事情，去机场&#43;返回新加坡。马尼拉交通确实糟糕，打车打了半天还没到。就当我们快要放弃，准备勇闯马尼拉，通过公共交通去机场时，车来了。然后经过安检去jollibee（快餐店也要安检真是离谱）。飞机还延误了，零点过一些才抵达新加坡。酷航飞机起飞和降落非常紧促，属于是急急航空了。# 马尼拉游记
+Day -1 Link to heading 从NTU打车去樟宜，准备飞去马尼拉。路上还是蛮紧张的，等飞机时不知道该做什么好。到了马尼拉后体会了当地糟糕的公共交通和治安。很晚才到酒店。去麦当劳吃饭，发现物价真的是便宜。在回来的路上一行人去711,还被当成打劫的叫了警察，看到了装甲车。鼠鼠我啊，变成鼠片了捏。
+Day 0 Link to heading 热身赛。上午就去了主办方的学校，但是一直无所事事。华为发了点小礼品，于是就一直在拼乐高，但也拼不好。中饭还不错，马尼拉食物确实还可以。热身赛快乐榜一。晚上华老师请客，披萨炸鸡意面，吃饱饱了。想复习一下的，但貌似也没什么经历了。回看了一下一些题目，写了到网络流就草草去睡了。
+Day 1 Link to heading 早饭还不错。然后等待开始。开场后我们一直很顺，前期唯一没过的题目纠结了十多分钟发现好像被诈骗了，其余的都是1A.这让我们心理优势还是不小。于是非常意外的，成为了全场第一个八题的队伍。然后我去开一道题，感觉很对的做法却WA了。肉眼debug了十几分钟，发现数据其实是指数级增长的。但是可行的数据量却小于1e8,于是手动判断不可行。封榜后没几分钟就过了。这时我们九题，剩下的队伍只有一个八题（一队他们），罚时也比我们更劣。面对最后一道题，应该是个贪心，但因为最后时间不足&#43;没有仔细思考，我们没能想到正确写法，我去草草写了一个然后WA了。队友以为他是对的，抓住最后几分钟想写一发，但是没时间交了（虽然事后证明这个连样例都没法过）。赛后我们还为这个吵了一架，他认为他的做法100%对，是因为我不信任他的implement导致他没时间写。最后发现实际上他的做法并不对，我的错误理解和他的解法是两部分，都要有才能对。
+比赛完了以后就去和一队交流了一下，知道了解法以及他们10题了。恭喜他们能去WF，还是很羡慕的。最后拿了个奖杯，晚上吃了顿，然后回酒店学会了打阿瓦隆&#43;桌游到凌晨。除了最后一题以外，其他的表现堪称完美。从未想过如此优的过程。 Day 2 Link to heading 没什么事情，去机场&#43;返回新加坡。马尼拉交通确实糟糕，打车打了半天还没到。就当我们快要放弃，准备勇闯马尼拉，通过公共交通去机场时，车来了。然后经过安检去jollibee（快餐店也要安检真是离谱）。飞机还延误了，零点过一些才抵达新加坡。酷航飞机起飞和降落非常紧促，属于是急急航空了。">
+<meta name="keywords" content="blog,developer,personal">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ICPC Manila"/>
+<meta name="twitter:description" content="马尼拉游记 Link to heading Day -1 Link to heading 从NTU打车去樟宜，准备飞去马尼拉。路上还是蛮紧张的，等飞机时不知道该做什么好。到了马尼拉后体会了当地糟糕的公共交通和治安。很晚才到酒店。去麦当劳吃饭，发现物价真的是便宜。在回来的路上一行人去711,还被当成打劫的叫了警察，看到了装甲车。鼠鼠我啊，变成鼠片了捏。
+Day 0 Link to heading 热身赛。上午就去了主办方的学校，但是一直无所事事。华为发了点小礼品，于是就一直在拼乐高，但也拼不好。中饭还不错，马尼拉食物确实还可以。热身赛快乐榜一。晚上华老师请客，披萨炸鸡意面，吃饱饱了。想复习一下的，但貌似也没什么经历了。回看了一下一些题目，写了到网络流就草草去睡了。
+Day 1 Link to heading 早饭还不错。然后等待开始。开场后我们一直很顺，前期唯一没过的题目纠结了十多分钟发现好像被诈骗了，其余的都是1A.这让我们心理优势还是不小。于是非常意外的，成为了全场第一个八题的队伍。然后我去开一道题，感觉很对的做法却WA了。肉眼debug了十几分钟，发现数据其实是指数级增长的。但是可行的数据量却小于1e8,于是手动判断不可行。封榜后没几分钟就过了。这时我们九题，剩下的队伍只有一个八题（一队他们），罚时也比我们更劣。面对最后一道题，应该是个贪心，但因为最后时间不足&#43;没有仔细思考，我们没能想到正确写法，我去草草写了一个然后WA了。队友以为他是对的，抓住最后几分钟想写一发，但是没时间交了（虽然事后证明这个连样例都没法过）。赛后我们还为这个吵了一架，他认为他的做法100%对，是因为我不信任他的implement导致他没时间写。最后发现实际上他的做法并不对，我的错误理解和他的解法是两部分，都要有才能对。
+比赛完了以后就去和一队交流了一下，知道了解法以及他们10题了。恭喜他们能去WF，还是很羡慕的。最后拿了个奖杯，晚上吃了顿，然后回酒店学会了打阿瓦隆&#43;桌游到凌晨。除了最后一题以外，其他的表现堪称完美。从未想过如此优的过程。 Day 2 Link to heading 没什么事情，去机场&#43;返回新加坡。马尼拉交通确实糟糕，打车打了半天还没到。就当我们快要放弃，准备勇闯马尼拉，通过公共交通去机场时，车来了。然后经过安检去jollibee（快餐店也要安检真是离谱）。飞机还延误了，零点过一些才抵达新加坡。酷航飞机起飞和降落非常紧促，属于是急急航空了。# 马尼拉游记
+Day -1 Link to heading 从NTU打车去樟宜，准备飞去马尼拉。路上还是蛮紧张的，等飞机时不知道该做什么好。到了马尼拉后体会了当地糟糕的公共交通和治安。很晚才到酒店。去麦当劳吃饭，发现物价真的是便宜。在回来的路上一行人去711,还被当成打劫的叫了警察，看到了装甲车。鼠鼠我啊，变成鼠片了捏。
+Day 0 Link to heading 热身赛。上午就去了主办方的学校，但是一直无所事事。华为发了点小礼品，于是就一直在拼乐高，但也拼不好。中饭还不错，马尼拉食物确实还可以。热身赛快乐榜一。晚上华老师请客，披萨炸鸡意面，吃饱饱了。想复习一下的，但貌似也没什么经历了。回看了一下一些题目，写了到网络流就草草去睡了。
+Day 1 Link to heading 早饭还不错。然后等待开始。开场后我们一直很顺，前期唯一没过的题目纠结了十多分钟发现好像被诈骗了，其余的都是1A.这让我们心理优势还是不小。于是非常意外的，成为了全场第一个八题的队伍。然后我去开一道题，感觉很对的做法却WA了。肉眼debug了十几分钟，发现数据其实是指数级增长的。但是可行的数据量却小于1e8,于是手动判断不可行。封榜后没几分钟就过了。这时我们九题，剩下的队伍只有一个八题（一队他们），罚时也比我们更劣。面对最后一道题，应该是个贪心，但因为最后时间不足&#43;没有仔细思考，我们没能想到正确写法，我去草草写了一个然后WA了。队友以为他是对的，抓住最后几分钟想写一发，但是没时间交了（虽然事后证明这个连样例都没法过）。赛后我们还为这个吵了一架，他认为他的做法100%对，是因为我不信任他的implement导致他没时间写。最后发现实际上他的做法并不对，我的错误理解和他的解法是两部分，都要有才能对。
+比赛完了以后就去和一队交流了一下，知道了解法以及他们10题了。恭喜他们能去WF，还是很羡慕的。最后拿了个奖杯，晚上吃了顿，然后回酒店学会了打阿瓦隆&#43;桌游到凌晨。除了最后一题以外，其他的表现堪称完美。从未想过如此优的过程。 Day 2 Link to heading 没什么事情，去机场&#43;返回新加坡。马尼拉交通确实糟糕，打车打了半天还没到。就当我们快要放弃，准备勇闯马尼拉，通过公共交通去机场时，车来了。然后经过安检去jollibee（快餐店也要安检真是离谱）。飞机还延误了，零点过一些才抵达新加坡。酷航飞机起飞和降落非常紧促，属于是急急航空了。"/>
+
+<meta property="og:title" content="ICPC Manila" />
+<meta property="og:description" content="马尼拉游记 Link to heading Day -1 Link to heading 从NTU打车去樟宜，准备飞去马尼拉。路上还是蛮紧张的，等飞机时不知道该做什么好。到了马尼拉后体会了当地糟糕的公共交通和治安。很晚才到酒店。去麦当劳吃饭，发现物价真的是便宜。在回来的路上一行人去711,还被当成打劫的叫了警察，看到了装甲车。鼠鼠我啊，变成鼠片了捏。
+Day 0 Link to heading 热身赛。上午就去了主办方的学校，但是一直无所事事。华为发了点小礼品，于是就一直在拼乐高，但也拼不好。中饭还不错，马尼拉食物确实还可以。热身赛快乐榜一。晚上华老师请客，披萨炸鸡意面，吃饱饱了。想复习一下的，但貌似也没什么经历了。回看了一下一些题目，写了到网络流就草草去睡了。
+Day 1 Link to heading 早饭还不错。然后等待开始。开场后我们一直很顺，前期唯一没过的题目纠结了十多分钟发现好像被诈骗了，其余的都是1A.这让我们心理优势还是不小。于是非常意外的，成为了全场第一个八题的队伍。然后我去开一道题，感觉很对的做法却WA了。肉眼debug了十几分钟，发现数据其实是指数级增长的。但是可行的数据量却小于1e8,于是手动判断不可行。封榜后没几分钟就过了。这时我们九题，剩下的队伍只有一个八题（一队他们），罚时也比我们更劣。面对最后一道题，应该是个贪心，但因为最后时间不足&#43;没有仔细思考，我们没能想到正确写法，我去草草写了一个然后WA了。队友以为他是对的，抓住最后几分钟想写一发，但是没时间交了（虽然事后证明这个连样例都没法过）。赛后我们还为这个吵了一架，他认为他的做法100%对，是因为我不信任他的implement导致他没时间写。最后发现实际上他的做法并不对，我的错误理解和他的解法是两部分，都要有才能对。
+比赛完了以后就去和一队交流了一下，知道了解法以及他们10题了。恭喜他们能去WF，还是很羡慕的。最后拿了个奖杯，晚上吃了顿，然后回酒店学会了打阿瓦隆&#43;桌游到凌晨。除了最后一题以外，其他的表现堪称完美。从未想过如此优的过程。 Day 2 Link to heading 没什么事情，去机场&#43;返回新加坡。马尼拉交通确实糟糕，打车打了半天还没到。就当我们快要放弃，准备勇闯马尼拉，通过公共交通去机场时，车来了。然后经过安检去jollibee（快餐店也要安检真是离谱）。飞机还延误了，零点过一些才抵达新加坡。酷航飞机起飞和降落非常紧促，属于是急急航空了。# 马尼拉游记
+Day -1 Link to heading 从NTU打车去樟宜，准备飞去马尼拉。路上还是蛮紧张的，等飞机时不知道该做什么好。到了马尼拉后体会了当地糟糕的公共交通和治安。很晚才到酒店。去麦当劳吃饭，发现物价真的是便宜。在回来的路上一行人去711,还被当成打劫的叫了警察，看到了装甲车。鼠鼠我啊，变成鼠片了捏。
+Day 0 Link to heading 热身赛。上午就去了主办方的学校，但是一直无所事事。华为发了点小礼品，于是就一直在拼乐高，但也拼不好。中饭还不错，马尼拉食物确实还可以。热身赛快乐榜一。晚上华老师请客，披萨炸鸡意面，吃饱饱了。想复习一下的，但貌似也没什么经历了。回看了一下一些题目，写了到网络流就草草去睡了。
+Day 1 Link to heading 早饭还不错。然后等待开始。开场后我们一直很顺，前期唯一没过的题目纠结了十多分钟发现好像被诈骗了，其余的都是1A.这让我们心理优势还是不小。于是非常意外的，成为了全场第一个八题的队伍。然后我去开一道题，感觉很对的做法却WA了。肉眼debug了十几分钟，发现数据其实是指数级增长的。但是可行的数据量却小于1e8,于是手动判断不可行。封榜后没几分钟就过了。这时我们九题，剩下的队伍只有一个八题（一队他们），罚时也比我们更劣。面对最后一道题，应该是个贪心，但因为最后时间不足&#43;没有仔细思考，我们没能想到正确写法，我去草草写了一个然后WA了。队友以为他是对的，抓住最后几分钟想写一发，但是没时间交了（虽然事后证明这个连样例都没法过）。赛后我们还为这个吵了一架，他认为他的做法100%对，是因为我不信任他的implement导致他没时间写。最后发现实际上他的做法并不对，我的错误理解和他的解法是两部分，都要有才能对。
+比赛完了以后就去和一队交流了一下，知道了解法以及他们10题了。恭喜他们能去WF，还是很羡慕的。最后拿了个奖杯，晚上吃了顿，然后回酒店学会了打阿瓦隆&#43;桌游到凌晨。除了最后一题以外，其他的表现堪称完美。从未想过如此优的过程。 Day 2 Link to heading 没什么事情，去机场&#43;返回新加坡。马尼拉交通确实糟糕，打车打了半天还没到。就当我们快要放弃，准备勇闯马尼拉，通过公共交通去机场时，车来了。然后经过安检去jollibee（快餐店也要安检真是离谱）。飞机还延误了，零点过一些才抵达新加坡。酷航飞机起飞和降落非常紧促，属于是急急航空了。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://siyangshao.github.io/cn/posts/icpc2022/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-12-17T18:37:30+08:00" />
+<meta property="article:modified_time" content="2022-12-17T18:37:30+08:00" />
+
+
+
+
+<link rel="canonical" href="https://siyangshao.github.io/cn/posts/icpc2022/">
+
+
+<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.e1bdf152d93b060b06ba5d496486ed9c201a8b95d335e035beb5faebe3b61cad.css" integrity="sha256-4b3xUtk7BgsGul1JZIbtnCAai5XTNeA1vrX66&#43;O2HK0=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/cn">
+      shaosy
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/cn/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/cn/posts/">Blog</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/">🇬🇧</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://siyangshao.github.io/cn/posts/icpc2022/">
+              ICPC Manila
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2022-12-17T18:37:30&#43;08:00">
+                December 17, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              One-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="/cn/categories/icpc/">ICPC</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/cn/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">碎碎念</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="马尼拉游记">
+  马尼拉游记
+  <a class="heading-link" href="#%e9%a9%ac%e5%b0%bc%e6%8b%89%e6%b8%b8%e8%ae%b0">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="day--1">
+  Day -1
+  <a class="heading-link" href="#day--1">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>从NTU打车去樟宜，准备飞去马尼拉。路上还是蛮紧张的，等飞机时不知道该做什么好。到了马尼拉后体会了当地糟糕的公共交通和治安。很晚才到酒店。去麦当劳吃饭，发现物价真的是便宜。在回来的路上一行人去711,还被当成打劫的叫了警察，看到了装甲车。鼠鼠我啊，变成鼠片了捏。</p>
+<h2 id="day-0">
+  Day 0
+  <a class="heading-link" href="#day-0">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>热身赛。上午就去了主办方的学校，但是一直无所事事。华为发了点小礼品，于是就一直在拼乐高，但也拼不好。中饭还不错，马尼拉食物确实还可以。热身赛快乐榜一。晚上华老师请客，披萨炸鸡意面，吃饱饱了。想复习一下的，但貌似也没什么经历了。回看了一下一些题目，写了到网络流就草草去睡了。</p>
+<h2 id="day-1">
+  Day 1
+  <a class="heading-link" href="#day-1">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>早饭还不错。然后等待开始。开场后我们一直很顺，前期唯一没过的题目纠结了十多分钟发现好像被诈骗了，其余的都是1A.这让我们心理优势还是不小。于是非常意外的，成为了全场第一个八题的队伍。然后我去开一道题，感觉很对的做法却WA了。肉眼debug了十几分钟，发现数据其实是指数级增长的。但是可行的数据量却小于1e8,于是手动判断不可行。封榜后没几分钟就过了。这时我们九题，剩下的队伍只有一个八题（一队他们），罚时也比我们更劣。面对最后一道题，应该是个贪心，但因为最后时间不足+没有仔细思考，我们没能想到正确写法，我去草草写了一个然后WA了。队友以为他是对的，抓住最后几分钟想写一发，但是没时间交了（虽然事后证明这个连样例都没法过）。赛后我们还为这个吵了一架，他认为他的做法100%对，是因为我不信任他的implement导致他没时间写。最后发现实际上他的做法并不对，我的错误理解和他的解法是两部分，都要有才能对。</p>
+<p>比赛完了以后就去和一队交流了一下，知道了解法以及他们10题了。恭喜他们能去WF，还是很羡慕的。最后拿了个奖杯，晚上吃了顿，然后回酒店学会了打阿瓦隆+桌游到凌晨。除了最后一题以外，其他的表现堪称完美。从未想过如此优的过程。
+<img src="images/Manila/Silver.jpg" alt="">
+<img src="images/Manila/Cup.jpg" alt=""></p>
+<h2 id="day-2">
+  Day 2
+  <a class="heading-link" href="#day-2">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>没什么事情，去机场+返回新加坡。马尼拉交通确实糟糕，打车打了半天还没到。就当我们快要放弃，准备勇闯马尼拉，通过公共交通去机场时，车来了。然后经过安检去jollibee（快餐店也要安检真是离谱）。飞机还延误了，零点过一些才抵达新加坡。酷航飞机起飞和降落非常紧促，属于是急急航空了。# 马尼拉游记</p>
+<h2 id="day--1-1">
+  Day -1
+  <a class="heading-link" href="#day--1-1">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>从NTU打车去樟宜，准备飞去马尼拉。路上还是蛮紧张的，等飞机时不知道该做什么好。到了马尼拉后体会了当地糟糕的公共交通和治安。很晚才到酒店。去麦当劳吃饭，发现物价真的是便宜。在回来的路上一行人去711,还被当成打劫的叫了警察，看到了装甲车。鼠鼠我啊，变成鼠片了捏。</p>
+<h2 id="day-0-1">
+  Day 0
+  <a class="heading-link" href="#day-0-1">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>热身赛。上午就去了主办方的学校，但是一直无所事事。华为发了点小礼品，于是就一直在拼乐高，但也拼不好。中饭还不错，马尼拉食物确实还可以。热身赛快乐榜一。晚上华老师请客，披萨炸鸡意面，吃饱饱了。想复习一下的，但貌似也没什么经历了。回看了一下一些题目，写了到网络流就草草去睡了。</p>
+<h2 id="day-1-1">
+  Day 1
+  <a class="heading-link" href="#day-1-1">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>早饭还不错。然后等待开始。开场后我们一直很顺，前期唯一没过的题目纠结了十多分钟发现好像被诈骗了，其余的都是1A.这让我们心理优势还是不小。于是非常意外的，成为了全场第一个八题的队伍。然后我去开一道题，感觉很对的做法却WA了。肉眼debug了十几分钟，发现数据其实是指数级增长的。但是可行的数据量却小于1e8,于是手动判断不可行。封榜后没几分钟就过了。这时我们九题，剩下的队伍只有一个八题（一队他们），罚时也比我们更劣。面对最后一道题，应该是个贪心，但因为最后时间不足+没有仔细思考，我们没能想到正确写法，我去草草写了一个然后WA了。队友以为他是对的，抓住最后几分钟想写一发，但是没时间交了（虽然事后证明这个连样例都没法过）。赛后我们还为这个吵了一架，他认为他的做法100%对，是因为我不信任他的implement导致他没时间写。最后发现实际上他的做法并不对，我的错误理解和他的解法是两部分，都要有才能对。</p>
+<p>比赛完了以后就去和一队交流了一下，知道了解法以及他们10题了。恭喜他们能去WF，还是很羡慕的。最后拿了个奖杯，晚上吃了顿，然后回酒店学会了打阿瓦隆+桌游到凌晨。除了最后一题以外，其他的表现堪称完美。从未想过如此优的过程。
+<img src="/images/Manila/Silver.jpg" alt="">
+<img src="/images/Manila/Cup.jpg" alt=""></p>
+<h2 id="day-2-1">
+  Day 2
+  <a class="heading-link" href="#day-2-1">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>没什么事情，去机场+返回新加坡。马尼拉交通确实糟糕，打车打了半天还没到。就当我们快要放弃，准备勇闯马尼拉，通过公共交通去机场时，车来了。然后经过安检去jollibee（快餐店也要安检真是离谱）。飞机还延误了，零点过一些才抵达新加坡。酷航飞机起飞和降落非常紧促，属于是急急航空了。</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2024
+     Siyang SHAO 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

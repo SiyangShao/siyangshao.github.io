@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+  PCIe Stress Test · shaosy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Siyang SHAO">
+<meta name="description" content="Monitor PCIe Stress Link to heading Technically, there&rsquo;s no much way to monitor the current PCIe bandwidth occupation. In most situations, the easiest way is to use
+sudo lspci -vvv to check the current PCIe link speed. However, it&rsquo;s not real-time (it will only tell you the PCIe link cap, like PCIe 4.0 x16 ).
+Luckily, if you are using the NVIDIA GPU, you can use
+nvidia-smi dmon -s t to monitor the current PCIe bandwidth occupation.">
+<meta name="keywords" content="blog,developer,personal">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="PCIe Stress Test"/>
+<meta name="twitter:description" content="Monitor PCIe Stress Link to heading Technically, there&rsquo;s no much way to monitor the current PCIe bandwidth occupation. In most situations, the easiest way is to use
+sudo lspci -vvv to check the current PCIe link speed. However, it&rsquo;s not real-time (it will only tell you the PCIe link cap, like PCIe 4.0 x16 ).
+Luckily, if you are using the NVIDIA GPU, you can use
+nvidia-smi dmon -s t to monitor the current PCIe bandwidth occupation."/>
+
+<meta property="og:title" content="PCIe Stress Test" />
+<meta property="og:description" content="Monitor PCIe Stress Link to heading Technically, there&rsquo;s no much way to monitor the current PCIe bandwidth occupation. In most situations, the easiest way is to use
+sudo lspci -vvv to check the current PCIe link speed. However, it&rsquo;s not real-time (it will only tell you the PCIe link cap, like PCIe 4.0 x16 ).
+Luckily, if you are using the NVIDIA GPU, you can use
+nvidia-smi dmon -s t to monitor the current PCIe bandwidth occupation." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://siyangshao.github.io/posts/pciestress/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-20T02:39:53+08:00" />
+<meta property="article:modified_time" content="2023-07-20T02:39:53+08:00" />
+
+
+
+
+<link rel="canonical" href="https://siyangshao.github.io/posts/pciestress/">
+
+
+<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.e1bdf152d93b060b06ba5d496486ed9c201a8b95d335e035beb5faebe3b61cad.css" integrity="sha256-4b3xUtk7BgsGul1JZIbtnCAai5XTNeA1vrX66&#43;O2HK0=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      shaosy
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/cn/">🇨🇳</a>
+              </li>
+            
+          
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://siyangshao.github.io/posts/pciestress/">
+              PCIe Stress Test
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-07-20T02:39:53&#43;08:00">
+                July 20, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              2-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="/categories/research/">research</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/system/">system</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="monitor-pcie-stress">
+  Monitor PCIe Stress
+  <a class="heading-link" href="#monitor-pcie-stress">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>Technically, there&rsquo;s no much way to monitor the current PCIe bandwidth occupation. In most situations, the easiest way is to use</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo lspci -vvv
+</span></span></code></pre></div><p>to check the current PCIe link speed. However, it&rsquo;s not real-time (it will only tell you the PCIe link cap, like PCIe 4.0 x16 ).</p>
+<p>Luckily, if you are using the NVIDIA GPU, you can use</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nvidia-smi dmon -s t
+</span></span></code></pre></div><p>to monitor the current PCIe bandwidth occupation. It will call a low level api</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nvmlDeviceGetPcieThroughput
+</span></span></code></pre></div><p>to get the current PCIe bandwidth occupation. <code>nvidia-smi</code> only support minimum interval of 1s, but this api is querying a byte counter over a 20ms interval. For more detailed information, you can check NVIDIA&rsquo;s document <a href="https://docs.nvidia.com/deploy/nvml-api/group__nvmlDeviceQueries.html#group__nvmlDeviceQueries_1gd86f1c74f81b5ddfaa6cb81b51030c72"  class="external-link" target="_blank" rel="noopener">here</a>.</p>
+<h1 id="bandwidth-test---stressor">
+  Bandwidth Test - Stressor
+  <a class="heading-link" href="#bandwidth-test---stressor">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>For indirectly measure the bandwidth, NVIDIA also provides something called &ldquo;Bandwidthtest&rdquo; which you can find on <a href="https://github.com/NVIDIA/cuda-samples/tree/master/Samples/1_Utilities/bandwidthTest"  class="external-link" target="_blank" rel="noopener">github</a>. Technically, this program is just contionusly copy data between CPU and GPU, using <code>cudaMemcpyAsync</code>, and calculate the bandwidth. You can manually change the transfer size and number of iteration.</p>
+<p>Thus, this program can be changed to apply stress on PCIe. For example, we can use the default transfer size, but change the number of iterations to 1e7, which will occupy the PCIe for a long time. Then, we can run both host to device transfer and device to host transfer at the same time (as PCIe is full duplex).</p>
+<h1 id="stress-vs-model-latency">
+  Stress vs Model Latency
+  <a class="heading-link" href="#stress-vs-model-latency">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>In general, we run multiple stressor process in parallel with the model to check whether the latency has changed. The result was obvious that running more stressor will cause higher latency and more significant tail latency.</p>
+<p>But, it&rsquo;s somewhat strange that if only running the stressor, the total bandwidth usage does not have a large difference. So we guess, the result may be caused by PCIe allocation policy.</p>
+<p>For example, if the policy is FIFO or Round-Robin, more stressor process will result in more PCIe transfer packets, which will lead to a higher latency. However, if the policy is priority based, the stressor process may not have a large impact on the latency.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2024
+     Siyang SHAO 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

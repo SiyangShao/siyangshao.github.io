@@ -1,0 +1,85 @@
+baseurl = "https://siyangshao.github.io"
+title = "shaosy"
+theme = "hugo-coder"
+languagecode = "en"
+defaultcontentlanguage = "en"
+katex = true
+paginate = 20
+
+# disqusShortname = "yourdiscussshortname"
+
+[markup.highlight]
+style = "github-dark"
+
+[params]
+  author = "Siyang SHAO"
+  info = "Student in NTUsg"
+  description = "Siyang Shao's personal website"
+  keywords = "blog,developer,personal"
+  avatarurl = "images/avatar.jpg"
+  #gravatar = "john.doe@example.com"
+
+  faviconSVG = "/img/favicon.svg"
+  favicon_32 = "/img/favicon-32x32.png"
+  favicon_16 = "/img/favicon-16x16.png"
+
+  since = 2024
+
+  enableTwemoji = true
+
+  colorScheme = "auto"
+  hidecolorschemetoggle = false
+
+  # customCSS = ["css/custom.css"]
+  # customSCSS = ["scss/custom.scss"]
+  # customJS = ["js/custom.js"]
+
+[taxonomies]
+  category = "categories"
+  series = "series"
+  tag = "tags"
+  author = "authors"
+
+# Social links
+[[params.social]]
+  name = "Github"
+  icon = "fa fa-github fa-2x"
+  weight = 1
+  url = "https://github.com/siyangshao/"
+[[params.social]]
+  name = "Telegram"
+  icon = "fa fa-telegram fa-2x"
+  weight = 2
+  url = "https://t.me/siyangshao"
+[[params.social]]
+  name = "Twitter"
+  icon = "fa fa-twitter fa-2x"
+  weight = 3
+  url = "https://twitter.com/ShaoSiyang/"
+[[params.social]]
+  name = "Email"
+  icon = "fa fa-envelope fa-2x"
+  weight = 4
+  url = "mailto:siyang.shao@outlook.com"
+# Menu links
+[languages.en]
+languageName = ":uk:"
+[[languages.en.menu.main]]
+  name = "About"
+  weight = 1
+  url = "about/"
+[[languages.en.menu.main]]
+  name = "Blog"
+  weight = 2
+  url  = "posts/"
+[languages.cn]
+languageName = ":cn:"
+[[languages.cn.menu.main]]
+  name = "About"
+  weight = 1
+  url = "about/"
+[[languages.cn.menu.main]]
+  name = "Blog"
+  weight = 2
+  url = "posts/"
+

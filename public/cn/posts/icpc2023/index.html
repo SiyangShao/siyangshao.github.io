@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+  <title>
+  ICPC Jakarta / Hue City · shaosy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Siyang SHAO">
+<meta name="description" content="我的12月就是一场灾难. 考了毫无感受的期末考, 打了几乎最烂的两场regional - Jakarta和Hue City.
+Jakarta Link to heading Jakarta其实题目难度一般. 虽然开场发挥不好, 但总体还算差强人意. 开场签到, 队友脑子不太在线wa了一发, 但是问题不大. 随后, 我们卡在了一道构造题上. 接下来便是地狱般的两个小时&ndash;整整两个小时, 我们一道题都没过. 而后, 我和zhengyu去开出了两道比较常规的题目, fanyi也构造出了那道构造题. 最后fanyi写dp, 我发现另一道题目是最小链覆盖, 可惜没时间写了. 赛后试了试, 发现observation是正确的. 主要问题是卡在构造题的时间太长太长了, 导致节奏有点崩盘. 最后rank 14, 因为罚时没有牌, 但幸好jakarta让我们能去playoff.
+Hue City Link to heading Hue City其实是个度假的好地方. 酒店好, 吃得好. 可惜打的烂. 被队友演玩了. 除了三道签到题, 剩下的题目(只能说队友卡在构造卡了5h), 全是我的observation &#43; 做法. 题目难么? 其实也还好.
+Playoff Link to heading 明年三月, playoff见.">
+<meta name="keywords" content="blog,developer,personal">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ICPC Jakarta / Hue City"/>
+<meta name="twitter:description" content="我的12月就是一场灾难. 考了毫无感受的期末考, 打了几乎最烂的两场regional - Jakarta和Hue City.
+Jakarta Link to heading Jakarta其实题目难度一般. 虽然开场发挥不好, 但总体还算差强人意. 开场签到, 队友脑子不太在线wa了一发, 但是问题不大. 随后, 我们卡在了一道构造题上. 接下来便是地狱般的两个小时&ndash;整整两个小时, 我们一道题都没过. 而后, 我和zhengyu去开出了两道比较常规的题目, fanyi也构造出了那道构造题. 最后fanyi写dp, 我发现另一道题目是最小链覆盖, 可惜没时间写了. 赛后试了试, 发现observation是正确的. 主要问题是卡在构造题的时间太长太长了, 导致节奏有点崩盘. 最后rank 14, 因为罚时没有牌, 但幸好jakarta让我们能去playoff.
+Hue City Link to heading Hue City其实是个度假的好地方. 酒店好, 吃得好. 可惜打的烂. 被队友演玩了. 除了三道签到题, 剩下的题目(只能说队友卡在构造卡了5h), 全是我的observation &#43; 做法. 题目难么? 其实也还好.
+Playoff Link to heading 明年三月, playoff见."/>
+
+<meta property="og:title" content="ICPC Jakarta / Hue City" />
+<meta property="og:description" content="我的12月就是一场灾难. 考了毫无感受的期末考, 打了几乎最烂的两场regional - Jakarta和Hue City.
+Jakarta Link to heading Jakarta其实题目难度一般. 虽然开场发挥不好, 但总体还算差强人意. 开场签到, 队友脑子不太在线wa了一发, 但是问题不大. 随后, 我们卡在了一道构造题上. 接下来便是地狱般的两个小时&ndash;整整两个小时, 我们一道题都没过. 而后, 我和zhengyu去开出了两道比较常规的题目, fanyi也构造出了那道构造题. 最后fanyi写dp, 我发现另一道题目是最小链覆盖, 可惜没时间写了. 赛后试了试, 发现observation是正确的. 主要问题是卡在构造题的时间太长太长了, 导致节奏有点崩盘. 最后rank 14, 因为罚时没有牌, 但幸好jakarta让我们能去playoff.
+Hue City Link to heading Hue City其实是个度假的好地方. 酒店好, 吃得好. 可惜打的烂. 被队友演玩了. 除了三道签到题, 剩下的题目(只能说队友卡在构造卡了5h), 全是我的observation &#43; 做法. 题目难么? 其实也还好.
+Playoff Link to heading 明年三月, playoff见." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://siyangshao.github.io/cn/posts/icpc2023/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-11T23:13:21+08:00" />
+<meta property="article:modified_time" content="2023-12-11T23:13:21+08:00" />
+
+
+
+
+<link rel="canonical" href="https://siyangshao.github.io/cn/posts/icpc2023/">
+
+
+<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.e1bdf152d93b060b06ba5d496486ed9c201a8b95d335e035beb5faebe3b61cad.css" integrity="sha256-4b3xUtk7BgsGul1JZIbtnCAai5XTNeA1vrX66&#43;O2HK0=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/cn">
+      shaosy
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/cn/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/cn/posts/">Blog</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/">🇬🇧</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://siyangshao.github.io/cn/posts/icpc2023/">
+              ICPC Jakarta / Hue City
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-12-11T23:13:21&#43;08:00">
+                December 11, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              One-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="/cn/categories/icpc/">ICPC</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/cn/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">碎碎念</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <p>我的12月就是一场灾难. 考了毫无感受的期末考, 打了几乎最烂的两场regional - Jakarta和Hue City.</p>
+<h2 id="jakarta">
+  Jakarta
+  <a class="heading-link" href="#jakarta">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Jakarta其实题目难度一般. 虽然开场发挥不好, 但总体还算差强人意. 开场签到, 队友脑子不太在线wa了一发, 但是问题不大. 随后, 我们卡在了一道构造题上. 接下来便是地狱般的两个小时&ndash;整整两个小时, 我们一道题都没过. 而后, 我和zhengyu去开出了两道比较常规的题目, fanyi也构造出了那道构造题. 最后fanyi写dp, 我发现另一道题目是最小链覆盖, 可惜没时间写了. 赛后试了试, 发现observation是正确的. 主要问题是卡在构造题的时间太长太长了, 导致节奏有点崩盘. 最后rank 14, 因为罚时没有牌, 但幸好jakarta让我们能去playoff.</p>
+<h2 id="hue-city">
+  Hue City
+  <a class="heading-link" href="#hue-city">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Hue City其实是个度假的好地方. 酒店好, 吃得好. 可惜打的烂. 被队友演玩了. 除了三道签到题, 剩下的题目(只能说队友卡在构造卡了5h), 全是我的observation + 做法. 题目难么? 其实也还好.</p>
+<h2 id="playoff">
+  Playoff
+  <a class="heading-link" href="#playoff">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>明年三月, playoff见.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2024
+     Siyang SHAO 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

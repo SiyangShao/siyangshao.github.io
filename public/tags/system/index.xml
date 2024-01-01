@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>system on shaosy</title>
+    <link>https://siyangshao.github.io/tags/system/</link>
+    <description>Recent content in system on shaosy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 20 Jul 2023 02:39:53 +0800</lastBuildDate><atom:link href="https://siyangshao.github.io/tags/system/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PCIe Stress Test</title>
+      <link>https://siyangshao.github.io/posts/pciestress/</link>
+      <pubDate>Thu, 20 Jul 2023 02:39:53 +0800</pubDate>
+      
+      <guid>https://siyangshao.github.io/posts/pciestress/</guid>
+      <description>Monitor PCIe Stress Link to heading Technically, there&amp;rsquo;s no much way to monitor the current PCIe bandwidth occupation. In most situations, the easiest way is to use
+sudo lspci -vvv to check the current PCIe link speed. However, it&amp;rsquo;s not real-time (it will only tell you the PCIe link cap, like PCIe 4.0 x16 ).
+Luckily, if you are using the NVIDIA GPU, you can use
+nvidia-smi dmon -s t to monitor the current PCIe bandwidth occupation.</description>
+    </item>
+    
+  </channel>
+</rss>

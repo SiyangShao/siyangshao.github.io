@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on shaosy</title>
+    <link>https://siyangshao.github.io/tags/</link>
+    <description>Recent content in Tags on shaosy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 20 Jul 2023 02:39:53 +0800</lastBuildDate><atom:link href="https://siyangshao.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>system</title>
+      <link>https://siyangshao.github.io/tags/system/</link>
+      <pubDate>Thu, 20 Jul 2023 02:39:53 +0800</pubDate>
+      
+      <guid>https://siyangshao.github.io/tags/system/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
