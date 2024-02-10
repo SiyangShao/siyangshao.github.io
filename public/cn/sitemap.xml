@@ -2,6 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://siyangshao.github.io/cn/categories/</loc>
+    <lastmod>2024-02-10T23:04:30+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://siyangshao.github.io/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://siyangshao.github.io/cn/categories/"
+                />
+  </url><url>
+    <loc>https://siyangshao.github.io/cn/categories/icpc/</loc>
+    <lastmod>2024-02-10T23:04:30+08:00</lastmod>
+  </url><url>
+    <loc>https://siyangshao.github.io/cn/posts/beforeplayoff/</loc>
+    <lastmod>2024-02-10T23:04:30+08:00</lastmod>
+  </url><url>
+    <loc>https://siyangshao.github.io/cn/posts/</loc>
+    <lastmod>2024-02-10T23:04:30+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://siyangshao.github.io/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://siyangshao.github.io/cn/posts/"
+                />
+  </url><url>
+    <loc>https://siyangshao.github.io/cn/</loc>
+    <lastmod>2024-02-10T23:04:30+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://siyangshao.github.io/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://siyangshao.github.io/cn/"
+                />
+  </url><url>
+    <loc>https://siyangshao.github.io/cn/tags/</loc>
+    <lastmod>2024-02-10T23:04:30+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://siyangshao.github.io/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://siyangshao.github.io/cn/tags/"
+                />
+  </url><url>
+    <loc>https://siyangshao.github.io/cn/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/</loc>
+    <lastmod>2024-02-10T23:04:30+08:00</lastmod>
+  </url><url>
     <loc>https://siyangshao.github.io/cn/about/</loc>
     <lastmod>2024-01-01T21:14:49+08:00</lastmod>
     <xhtml:link
@@ -15,65 +76,7 @@
                 href="https://siyangshao.github.io/cn/about/"
                 />
   </url><url>
-    <loc>https://siyangshao.github.io/cn/categories/</loc>
-    <lastmod>2023-12-11T23:13:21+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://siyangshao.github.io/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://siyangshao.github.io/cn/categories/"
-                />
-  </url><url>
-    <loc>https://siyangshao.github.io/cn/categories/icpc/</loc>
-    <lastmod>2023-12-11T23:13:21+08:00</lastmod>
-  </url><url>
     <loc>https://siyangshao.github.io/cn/posts/icpc2023/</loc>
-    <lastmod>2023-12-11T23:13:21+08:00</lastmod>
-  </url><url>
-    <loc>https://siyangshao.github.io/cn/posts/</loc>
-    <lastmod>2023-12-11T23:13:21+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://siyangshao.github.io/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://siyangshao.github.io/cn/posts/"
-                />
-  </url><url>
-    <loc>https://siyangshao.github.io/cn/</loc>
-    <lastmod>2023-12-11T23:13:21+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://siyangshao.github.io/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://siyangshao.github.io/cn/"
-                />
-  </url><url>
-    <loc>https://siyangshao.github.io/cn/tags/</loc>
-    <lastmod>2023-12-11T23:13:21+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://siyangshao.github.io/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://siyangshao.github.io/cn/tags/"
-                />
-  </url><url>
-    <loc>https://siyangshao.github.io/cn/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/</loc>
     <lastmod>2023-12-11T23:13:21+08:00</lastmod>
   </url><url>
     <loc>https://siyangshao.github.io/cn/posts/icpc2022/</loc>

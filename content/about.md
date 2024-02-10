@@ -10,6 +10,8 @@ Learning **Computer Engineering** in [**NTUsg**](https://www.ntu.edu.sg/), class
 
 Now living in Singapore.
 
+If you want to [by me a cup of kopi](https://www.buymeacoffee.com/shaosy).
+
 ### Skills
 
 **Technical** C++/C/Python/Linux
