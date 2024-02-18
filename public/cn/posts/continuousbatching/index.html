@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+  <title>
+  Continuous Batching 代码简介 · shaosy
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Siyang SHAO">
+<meta name="description" content="这篇文章也相当于我这几天读vLLM源码的一个总结. 如果发现有事实错误等方面, 请及时联系我.
+Continuous Batching 介绍 Link to heading Continuous Batching的核心思想是, 在传统的批处理(即 static batching)的过程中, 由于我们无法预测每一个 sequence需要多久才能结束, 导致如果不同的sequence结束的token差越大时, 会导致GPU的利用率偏低. 在一个serving的后期, 除了还没有结束的sequence在计算next token, 剩下的已经结束的sequence相当于empty token在空转.
+所以, continuous batching选择了迭代处理方式, 在部分序列处理完成后, 选择插入新序列. 这样能提高利用率. 关于这个idea不清楚的可以去参考这篇文章.
+vLLM生成 Link to heading 对vLLM而言, 他添加了一个调度器(即代码中的 scheduler), 而所有生成都会由调度器处理. 所以在generate中, 我们可以发现, 他是将所有的request(即在同一个batch中的prompt)都放入调度器进行处理的.
+num_requests = len(prompts) if prompts is not None else len(prompt_token_ids) for i in range(num_requests): prompt = prompts[i] if prompts is not None else None token_ids = None if prompt_token_ids is None else prompt_token_ids[i] self.">
+<meta name="keywords" content="blog,developer,personal">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Continuous Batching 代码简介"/>
+<meta name="twitter:description" content="这篇文章也相当于我这几天读vLLM源码的一个总结. 如果发现有事实错误等方面, 请及时联系我.
+Continuous Batching 介绍 Link to heading Continuous Batching的核心思想是, 在传统的批处理(即 static batching)的过程中, 由于我们无法预测每一个 sequence需要多久才能结束, 导致如果不同的sequence结束的token差越大时, 会导致GPU的利用率偏低. 在一个serving的后期, 除了还没有结束的sequence在计算next token, 剩下的已经结束的sequence相当于empty token在空转.
+所以, continuous batching选择了迭代处理方式, 在部分序列处理完成后, 选择插入新序列. 这样能提高利用率. 关于这个idea不清楚的可以去参考这篇文章.
+vLLM生成 Link to heading 对vLLM而言, 他添加了一个调度器(即代码中的 scheduler), 而所有生成都会由调度器处理. 所以在generate中, 我们可以发现, 他是将所有的request(即在同一个batch中的prompt)都放入调度器进行处理的.
+num_requests = len(prompts) if prompts is not None else len(prompt_token_ids) for i in range(num_requests): prompt = prompts[i] if prompts is not None else None token_ids = None if prompt_token_ids is None else prompt_token_ids[i] self."/>
+
+<meta property="og:title" content="Continuous Batching 代码简介" />
+<meta property="og:description" content="这篇文章也相当于我这几天读vLLM源码的一个总结. 如果发现有事实错误等方面, 请及时联系我.
+Continuous Batching 介绍 Link to heading Continuous Batching的核心思想是, 在传统的批处理(即 static batching)的过程中, 由于我们无法预测每一个 sequence需要多久才能结束, 导致如果不同的sequence结束的token差越大时, 会导致GPU的利用率偏低. 在一个serving的后期, 除了还没有结束的sequence在计算next token, 剩下的已经结束的sequence相当于empty token在空转.
+所以, continuous batching选择了迭代处理方式, 在部分序列处理完成后, 选择插入新序列. 这样能提高利用率. 关于这个idea不清楚的可以去参考这篇文章.
+vLLM生成 Link to heading 对vLLM而言, 他添加了一个调度器(即代码中的 scheduler), 而所有生成都会由调度器处理. 所以在generate中, 我们可以发现, 他是将所有的request(即在同一个batch中的prompt)都放入调度器进行处理的.
+num_requests = len(prompts) if prompts is not None else len(prompt_token_ids) for i in range(num_requests): prompt = prompts[i] if prompts is not None else None token_ids = None if prompt_token_ids is None else prompt_token_ids[i] self." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://siyangshao.github.io/cn/posts/continuousbatching/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-02-18T21:36:04+08:00" />
+<meta property="article:modified_time" content="2024-02-18T21:36:04+08:00" />
+
+
+
+
+<link rel="canonical" href="https://siyangshao.github.io/cn/posts/continuousbatching/">
+
+
+<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.e1bdf152d93b060b06ba5d496486ed9c201a8b95d335e035beb5faebe3b61cad.css" integrity="sha256-4b3xUtk7BgsGul1JZIbtnCAai5XTNeA1vrX66&#43;O2HK0=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/cn">
+      shaosy
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/cn/about/">关于我</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/cn/posts/">碎碎念</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/">🇬🇧</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://siyangshao.github.io/cn/posts/continuousbatching/">
+              Continuous Batching 代码简介
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-02-18T21:36:04&#43;08:00">
+                February 18, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              2-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="/cn/categories/research/">research</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/cn/tags/system/">system</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/cn/tags/mlsys/">mlsys</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <blockquote>
+<p>这篇文章也相当于我这几天读vLLM源码的一个总结. 如果发现有事实错误等方面, 请及时联系我.</p>
+</blockquote>
+<h1 id="continuous-batching-介绍">
+  Continuous Batching 介绍
+  <a class="heading-link" href="#continuous-batching-%e4%bb%8b%e7%bb%8d">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>Continuous Batching的核心思想是, 在传统的批处理(即 static batching)的过程中, 由于我们无法预测每一个 sequence需要多久才能结束, 导致如果不同的sequence结束的token差越大时, 会导致GPU的利用率偏低. 在一个serving的后期, 除了还没有结束的sequence在计算next token, 剩下的已经结束的sequence相当于empty token在空转.</p>
+<p>所以, continuous batching选择了迭代处理方式, 在部分序列处理完成后, 选择插入新序列. 这样能提高利用率. 关于这个idea不清楚的可以去参考<a href="https://www.usenix.org/conference/osdi22/presentation/yu"  class="external-link" target="_blank" rel="noopener">这篇文章</a>.</p>
+<h1 id="vllm生成">
+  vLLM生成
+  <a class="heading-link" href="#vllm%e7%94%9f%e6%88%90">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>对vLLM而言, 他添加了一个调度器(即代码中的 scheduler), 而所有生成都会由调度器处理. 所以在generate中, 我们可以发现, 他是将所有的request(即在同一个batch中的prompt)都放入调度器进行处理的.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>num_requests <span style="color:#ff7b72;font-weight:bold">=</span> len(prompts) <span style="color:#ff7b72">if</span> prompts <span style="color:#ff7b72;font-weight:bold">is</span> <span style="color:#ff7b72;font-weight:bold">not</span> <span style="color:#79c0ff">None</span> <span style="color:#ff7b72">else</span> len(prompt_token_ids)
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">for</span> i <span style="color:#ff7b72;font-weight:bold">in</span> range(num_requests):
+</span></span><span style="display:flex;"><span>	prompt <span style="color:#ff7b72;font-weight:bold">=</span> prompts[i] <span style="color:#ff7b72">if</span> prompts <span style="color:#ff7b72;font-weight:bold">is</span> <span style="color:#ff7b72;font-weight:bold">not</span> <span style="color:#79c0ff">None</span> <span style="color:#ff7b72">else</span> <span style="color:#79c0ff">None</span>
+</span></span><span style="display:flex;"><span>    token_ids <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#79c0ff">None</span> <span style="color:#ff7b72">if</span> prompt_token_ids <span style="color:#ff7b72;font-weight:bold">is</span> <span style="color:#79c0ff">None</span> <span style="color:#ff7b72">else</span> prompt_token_ids[i]
+</span></span><span style="display:flex;"><span>    self<span style="color:#ff7b72;font-weight:bold">.</span>_add_request(prompt,token_ids)
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">return</span> self<span style="color:#ff7b72;font-weight:bold">.</span>_run_engine()
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">_run_engine</span>(self, use_tqdm: bool) <span style="color:#ff7b72;font-weight:bold">-&gt;</span> List[RequestOutput]:
+</span></span><span style="display:flex;"><span>	<span style="color:#8b949e;font-style:italic"># Run the engine.</span>
+</span></span><span style="display:flex;"><span>	outputs: List[RequestOutput] <span style="color:#ff7b72;font-weight:bold">=</span> []
+</span></span><span style="display:flex;"><span>	<span style="color:#ff7b72">while</span> self<span style="color:#ff7b72;font-weight:bold">.</span>llm_engine<span style="color:#ff7b72;font-weight:bold">.</span>has_unfinished_requests():
+</span></span><span style="display:flex;"><span>		step_outputs <span style="color:#ff7b72;font-weight:bold">=</span> self<span style="color:#ff7b72;font-weight:bold">.</span>llm_engine<span style="color:#ff7b72;font-weight:bold">.</span>step()
+</span></span><span style="display:flex;"><span>		<span style="color:#ff7b72">for</span> output <span style="color:#ff7b72;font-weight:bold">in</span> step_outputs:
+</span></span><span style="display:flex;"><span>			<span style="color:#ff7b72">if</span> output<span style="color:#ff7b72;font-weight:bold">.</span>finished:
+</span></span><span style="display:flex;"><span>				outputs<span style="color:#ff7b72;font-weight:bold">.</span>append(output)
+</span></span><span style="display:flex;"><span>   	outputs <span style="color:#ff7b72;font-weight:bold">=</span> sorted(outputs, key<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#ff7b72">lambda</span> x: int(x<span style="color:#ff7b72;font-weight:bold">.</span>request_id))
+</span></span><span style="display:flex;"><span>	<span style="color:#ff7b72">return</span> outputs
+</span></span></code></pre></div><p>而调度器会在每次调用step的时候进行处理</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>seq_group_metadata_list, scheduler_outputs <span style="color:#ff7b72;font-weight:bold">=</span> self<span style="color:#ff7b72;font-weight:bold">.</span>scheduler<span style="color:#ff7b72;font-weight:bold">.</span>schedule()
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">if</span> <span style="color:#ff7b72;font-weight:bold">not</span> scheduler_outputs<span style="color:#ff7b72;font-weight:bold">.</span>is_empty():
+</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Execute the model.</span>
+</span></span><span style="display:flex;"><span>	all_outputs <span style="color:#ff7b72;font-weight:bold">=</span> self<span style="color:#ff7b72;font-weight:bold">.</span>_run_workers(
+</span></span><span style="display:flex;"><span>		<span style="color:#a5d6ff">&#34;execute_model&#34;</span>,
+</span></span><span style="display:flex;"><span>		driver_kwargs<span style="color:#ff7b72;font-weight:bold">=</span>{
+</span></span><span style="display:flex;"><span>			<span style="color:#a5d6ff">&#34;seq_group_metadata_list&#34;</span>: seq_group_metadata_list,
+</span></span><span style="display:flex;"><span>			<span style="color:#a5d6ff">&#34;blocks_to_swap_in&#34;</span>: scheduler_outputs<span style="color:#ff7b72;font-weight:bold">.</span>blocks_to_swap_in,
+</span></span><span style="display:flex;"><span>			<span style="color:#a5d6ff">&#34;blocks_to_swap_out&#34;</span>: scheduler_outputs<span style="color:#ff7b72;font-weight:bold">.</span>blocks_to_swap_out,
+</span></span><span style="display:flex;"><span>			<span style="color:#a5d6ff">&#34;blocks_to_copy&#34;</span>: scheduler_outputs<span style="color:#ff7b72;font-weight:bold">.</span>blocks_to_copy,
+</span></span><span style="display:flex;"><span>			})
+</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Only the driver worker returns the sampling results.</span>
+</span></span><span style="display:flex;"><span>	output <span style="color:#ff7b72;font-weight:bold">=</span> all_outputs[<span style="color:#a5d6ff">0</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">else</span>:
+</span></span><span style="display:flex;"><span>	output <span style="color:#ff7b72;font-weight:bold">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">return</span> self<span style="color:#ff7b72;font-weight:bold">.</span>_process_model_outputs(output, scheduler_outputs)
+</span></span></code></pre></div><p>在这里我们先忽略如何处理output, 重点关注两个部分: 调度器如何运作, 以及如何处理.</p>
+<p>首先让我们先忽略调度部分, 看一下是如何推理的. 在<code>self._run_workers</code>部分中, 较为核心的部分就是他如何在本地和ray调用<code>execute_model</code> method的. 我们目前只关心本地部分.</p>
+<p>可以发现, <code>worker</code>的<code>execute model</code>其实就是如下:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>self<span style="color:#ff7b72;font-weight:bold">.</span>cache_swap(blocks_to_swap_in, blocks_to_swap_out, blocks_to_copy)
+</span></span><span style="display:flex;"><span>output <span style="color:#ff7b72;font-weight:bold">=</span> self<span style="color:#ff7b72;font-weight:bold">.</span>model_runner<span style="color:#ff7b72;font-weight:bold">.</span>execute_model(seq_group_metadata_list, self<span style="color:#ff7b72;font-weight:bold">.</span>gpu_cache)
+</span></span></code></pre></div><p>首先, 将scheduler得到的需要swap的block给读入, 然后进行处理.</p>
+<p>而真正的<code>execute_model</code>部分位于```model_runner``中, 如下:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">execute_model</span>(
+</span></span><span style="display:flex;"><span>    self,
+</span></span><span style="display:flex;"><span>    seq_group_metadata_list: Optional[List[SequenceGroupMetadata]],
+</span></span><span style="display:flex;"><span>    kv_caches: List[Tuple[torch<span style="color:#ff7b72;font-weight:bold">.</span>Tensor, torch<span style="color:#ff7b72;font-weight:bold">.</span>Tensor]],
+</span></span><span style="display:flex;"><span>) <span style="color:#ff7b72;font-weight:bold">-&gt;</span> Optional[SamplerOutput]:
+</span></span><span style="display:flex;"><span>    input_tokens, input_positions, input_metadata, sampling_metadata, lora_requests, lora_mapping <span style="color:#ff7b72;font-weight:bold">=</span> (
+</span></span><span style="display:flex;"><span>        self<span style="color:#ff7b72;font-weight:bold">.</span>prepare_input_tensors(seq_group_metadata_list))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">if</span> self<span style="color:#ff7b72;font-weight:bold">.</span>lora_config:
+</span></span><span style="display:flex;"><span>        self<span style="color:#ff7b72;font-weight:bold">.</span>set_active_loras(lora_requests, lora_mapping)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Execute the model.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">if</span> input_metadata<span style="color:#ff7b72;font-weight:bold">.</span>use_cuda_graph:
+</span></span><span style="display:flex;"><span>        graph_batch_size <span style="color:#ff7b72;font-weight:bold">=</span> input_tokens<span style="color:#ff7b72;font-weight:bold">.</span>shape[<span style="color:#a5d6ff">0</span>]
+</span></span><span style="display:flex;"><span>        model_executable <span style="color:#ff7b72;font-weight:bold">=</span> self<span style="color:#ff7b72;font-weight:bold">.</span>graph_runners[graph_batch_size]
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">else</span>:
+</span></span><span style="display:flex;"><span>        model_executable <span style="color:#ff7b72;font-weight:bold">=</span> self<span style="color:#ff7b72;font-weight:bold">.</span>model
+</span></span><span style="display:flex;"><span>    hidden_states <span style="color:#ff7b72;font-weight:bold">=</span> model_executable(
+</span></span><span style="display:flex;"><span>        input_ids<span style="color:#ff7b72;font-weight:bold">=</span>input_tokens,
+</span></span><span style="display:flex;"><span>        positions<span style="color:#ff7b72;font-weight:bold">=</span>input_positions,
+</span></span><span style="display:flex;"><span>        kv_caches<span style="color:#ff7b72;font-weight:bold">=</span>kv_caches,
+</span></span><span style="display:flex;"><span>        input_metadata<span style="color:#ff7b72;font-weight:bold">=</span>input_metadata,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Sample the next token.</span>
+</span></span><span style="display:flex;"><span>    output <span style="color:#ff7b72;font-weight:bold">=</span> self<span style="color:#ff7b72;font-weight:bold">.</span>model<span style="color:#ff7b72;font-weight:bold">.</span>sample(
+</span></span><span style="display:flex;"><span>        hidden_states<span style="color:#ff7b72;font-weight:bold">=</span>hidden_states,
+</span></span><span style="display:flex;"><span>        sampling_metadata<span style="color:#ff7b72;font-weight:bold">=</span>sampling_metadata,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">return</span> output
+</span></span></code></pre></div><p>这里设置了模型的hidden state和采样策略, 最后生成下一个token.</p>
+<p>然后是scheduler的调度部分</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">schedule</span>(self) <span style="color:#ff7b72;font-weight:bold">-&gt;</span> Tuple[List[SequenceGroupMetadata], SchedulerOutputs]:
+</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Schedule sequence groups.</span>
+</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># This function call changes the internal states of the scheduler</span>
+</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># such as self.running, self.swapped, and self.waiting.</span>
+</span></span><span style="display:flex;"><span>	scheduler_outputs <span style="color:#ff7b72;font-weight:bold">=</span> self<span style="color:#ff7b72;font-weight:bold">.</span>_schedule()
+</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Create input data structures.</span>
+</span></span><span style="display:flex;"><span>	seq_group_metadata_list: List[SequenceGroupMetadata] <span style="color:#ff7b72;font-weight:bold">=</span> []
+</span></span><span style="display:flex;"><span>	<span style="color:#ff7b72">for</span> seq_group <span style="color:#ff7b72;font-weight:bold">in</span> scheduler_outputs<span style="color:#ff7b72;font-weight:bold">.</span>scheduled_seq_groups:
+</span></span><span style="display:flex;"><span>		seq_data: Dict[int, SequenceData] <span style="color:#ff7b72;font-weight:bold">=</span> {}
+</span></span><span style="display:flex;"><span>		block_tables: Dict[int, List[int]] <span style="color:#ff7b72;font-weight:bold">=</span> {}
+</span></span><span style="display:flex;"><span>		<span style="color:#ff7b72">for</span> seq <span style="color:#ff7b72;font-weight:bold">in</span> seq_group<span style="color:#ff7b72;font-weight:bold">.</span>get_seqs(status<span style="color:#ff7b72;font-weight:bold">=</span>SequenceStatus<span style="color:#ff7b72;font-weight:bold">.</span>RUNNING):
+</span></span><span style="display:flex;"><span>			seq_id <span style="color:#ff7b72;font-weight:bold">=</span> seq<span style="color:#ff7b72;font-weight:bold">.</span>seq_id
+</span></span><span style="display:flex;"><span>			seq_data[seq_id] <span style="color:#ff7b72;font-weight:bold">=</span> seq<span style="color:#ff7b72;font-weight:bold">.</span>data
+</span></span><span style="display:flex;"><span>			block_tables[seq_id] <span style="color:#ff7b72;font-weight:bold">=</span> self<span style="color:#ff7b72;font-weight:bold">.</span>block_manager<span style="color:#ff7b72;font-weight:bold">.</span>get_block_table(seq)
+</span></span><span style="display:flex;"><span>		seq_group_metadata <span style="color:#ff7b72;font-weight:bold">=</span> SequenceGroupMetadata(
+</span></span><span style="display:flex;"><span>			request_id<span style="color:#ff7b72;font-weight:bold">=</span>seq_group<span style="color:#ff7b72;font-weight:bold">.</span>request_id,
+</span></span><span style="display:flex;"><span>			is_prompt<span style="color:#ff7b72;font-weight:bold">=</span>scheduler_outputs<span style="color:#ff7b72;font-weight:bold">.</span>prompt_run,
+</span></span><span style="display:flex;"><span>			seq_data<span style="color:#ff7b72;font-weight:bold">=</span>seq_data,
+</span></span><span style="display:flex;"><span>			sampling_params<span style="color:#ff7b72;font-weight:bold">=</span>seq_group<span style="color:#ff7b72;font-weight:bold">.</span>sampling_params,
+</span></span><span style="display:flex;"><span>			block_tables<span style="color:#ff7b72;font-weight:bold">=</span>block_tables,
+</span></span><span style="display:flex;"><span>			lora_request<span style="color:#ff7b72;font-weight:bold">=</span>seq_group<span style="color:#ff7b72;font-weight:bold">.</span>lora_request,
+</span></span><span style="display:flex;"><span>			prefix<span style="color:#ff7b72;font-weight:bold">=</span>seq_group<span style="color:#ff7b72;font-weight:bold">.</span>prefix,
+</span></span><span style="display:flex;"><span>			)
+</span></span><span style="display:flex;"><span>		seq_group_metadata_list<span style="color:#ff7b72;font-weight:bold">.</span>append(seq_group_metadata)
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">return</span> seq_group_metadata_list, scheduler_outputs
+</span></span></code></pre></div><p>在<code>self._schedule()</code>中, 则是更新当前状态. 简单来说, 他会首先检查当前的slot是否足够, 且没有swap out的sequence. 如果有swap out的sequence, 第一选择是extend slot直到无法扩充. 在无法扩充时, 其实现了一个抢占性的调度策略.</p>
+<p>在generate过程中, 每一个sequence都只会占用一个token slot. 因此, batched token的数量永远等于处于running state的sequence数量.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2024
+     Siyang SHAO 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

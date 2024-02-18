@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>system on shaosy</title>
+    <link>https://siyangshao.github.io/cn/tags/system/</link>
+    <description>Recent content in system on shaosy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>cn</language>
+    <lastBuildDate>Sun, 18 Feb 2024 21:36:04 +0800</lastBuildDate><atom:link href="https://siyangshao.github.io/cn/tags/system/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Continuous Batching 代码简介</title>
+      <link>https://siyangshao.github.io/cn/posts/continuousbatching/</link>
+      <pubDate>Sun, 18 Feb 2024 21:36:04 +0800</pubDate>
+      
+      <guid>https://siyangshao.github.io/cn/posts/continuousbatching/</guid>
+      <description>这篇文章也相当于我这几天读vLLM源码的一个总结. 如果发现有事实错误等方面, 请及时联系我.
+Continuous Batching 介绍 Link to heading Continuous Batching的核心思想是, 在传统的批处理(即 static batching)的过程中, 由于我们无法预测每一个 sequence需要多久才能结束, 导致如果不同的sequence结束的token差越大时, 会导致GPU的利用率偏低. 在一个serving的后期, 除了还没有结束的sequence在计算next token, 剩下的已经结束的sequence相当于empty token在空转.
+所以, continuous batching选择了迭代处理方式, 在部分序列处理完成后, 选择插入新序列. 这样能提高利用率. 关于这个idea不清楚的可以去参考这篇文章.
+vLLM生成 Link to heading 对vLLM而言, 他添加了一个调度器(即代码中的 scheduler), 而所有生成都会由调度器处理. 所以在generate中, 我们可以发现, 他是将所有的request(即在同一个batch中的prompt)都放入调度器进行处理的.
+num_requests = len(prompts) if prompts is not None else len(prompt_token_ids) for i in range(num_requests): prompt = prompts[i] if prompts is not None else None token_ids = None if prompt_token_ids is None else prompt_token_ids[i] self.</description>
+    </item>
+    
+  </channel>
+</rss>
