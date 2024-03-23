@@ -6,7 +6,7 @@ draft = false
 
 ### SHAO Siyang
 
-Learning **Computer Engineering** in [**NTUsg**](https://www.ntu.edu.sg/), class of 2025. Interested in competitive programming (as NTU ICPC Team member) and still finding area of interest in cs.
+Learning **Computer Engineering** in [**NTUsg**](https://www.ntu.edu.sg/), class of 2025. Still finding area of interest in cs.
 
 Now living in Singapore.
 

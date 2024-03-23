@@ -149,3 +149,9 @@ return seq_group_metadata_list, scheduler_outputs
 在```self._schedule()```中, 则是更新当前状态. 简单来说, 他会首先检查当前的slot是否足够, 且没有swap out的sequence. 如果有swap out的sequence, 第一选择是extend slot直到无法扩充. 在无法扩充时, 其实现了一个抢占性的调度策略.
 
 在generate过程中, 每一个sequence都只会占用一个token slot. 因此, batched token的数量永远等于处于running state的sequence数量.
+
+# 调度策略
+
+实际上目前而言, vLLM的调度策略并不复杂. 对每一个sequence而言, 他分为三种状态: WAITING, RUNNING, SWAPPED. 每一个sequence一开始都在waiting state. 接下来, 在不考虑SWAPPED state的情况下, scheduler会尽可能将WAITING state的sequence调入RUNNING state.
+
+vLLM的SWAPPED基于优先级, 且为抢占性的. 他会将RUNNING state中优先级不够的调出, 然后用同样的策略将SWAPPED state的sequence调入. 这里需要swapped是因为这是基于迭代的, 每一轮的batch size都不一定相同.

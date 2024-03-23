@@ -6,7 +6,22 @@
     <description>Recent content in Posts on shaosy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn</language>
-    <lastBuildDate>Sun, 18 Feb 2024 21:36:04 +0800</lastBuildDate><atom:link href="https://siyangshao.github.io/cn/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Mar 2024 23:21:36 +0800</lastBuildDate><atom:link href="https://siyangshao.github.io/cn/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ICPC Asia pacific Championship</title>
+      <link>https://siyangshao.github.io/cn/posts/asiapacificchampionship/</link>
+      <pubDate>Sat, 02 Mar 2024 23:21:36 +0800</pubDate>
+      
+      <guid>https://siyangshao.github.io/cn/posts/asiapacificchampionship/</guid>
+      <description>Day -10086 Link to heading 我亲爱的一位队友在失联了一个月后, 于赛前一个月正式宣布不来了. 我和我另一位已经打算在Asia Pacific Championship结束后退役的队友早已对这场比赛不报希望, 只是保持最低限度的训练罢了.
+Day 0 Link to heading 抵达河内. 河内和岘港的体验类似, 但可能由于不是旅游城市, 海关排起了长队. 不过, 由于是championship, 有主办方的志愿者接机. 至少在那时, 还是有点期待的.
+Day 1 Link to heading 热身赛. 一如既往的烂. 比较惊喜的是, 热身赛对面坐着的是阳明交大的队伍, 之前在雅加达和他们见过. 也算熟人吧.
+另外一个令人惊喜的点是, 竟然有Jane Street作为赞助商. 于是, 我还顺走了Mingyuan的教练服. 不得不说, final的教练服确实好看.
+Day 2 Link to heading 比赛过程其实没什么特别好说的. 由于只有两个人, 导致我对结果也没什么期望. 可能因为我也没那么push了, fanyi的发挥相当不错. 他解决了一道可以说我根本不可能做得出的大数据结构题. 最后我们总共解决了6题, rank 22, 很遗憾, 还是没能够进入world final.
+多余的话 Link to heading 结束了么? 我不知道.
+我还希望能看见明天的太阳.</description>
+    </item>
+    
     <item>
       <title>Continuous Batching 代码简介</title>
       <link>https://siyangshao.github.io/cn/posts/continuousbatching/</link>
