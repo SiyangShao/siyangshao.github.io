@@ -1,0 +1,63 @@
+baseURL = 'https://siyangshao.github.io/'
+languageCode = 'en-us'
+title = 'Siyang Shao'
+theme = 'hugo-xmin'
+# googleAnalytics = ''
+disqusShortname = ''
+footnotereturnlinkcontents = '&#8617;'
+ignoreFiles = ['\\.Rmd$', '\\.Rmarkdown$', '_cache$']
+
+enableRobotsTXT = true
+
+[permalinks]
+  note = '/note/:year/:month/:day/:slug/'
+  post = '/post/:year/:month/:day/:slug/'
+
+[menu]
+  # [[menu.main]]
+  #   name = 'Home'
+  #   url = ''
+  #   weight = 1
+
+  # [[menu.main]]
+  #   name = 'About'
+  #   url = 'about/'
+  #   weight = 2
+
+  # [[menu.main]]
+  #   name = 'Posts'
+  #   url = 'post/'
+  #   weight = 3
+
+  # [[menu.main]]
+  #   name = 'Notes'
+  #   url = 'note/'
+  #   weight = 4
+
+  # [[menu.main]]
+  #   name = 'Tags'
+  #   url = 'tags/'
+  #   weight = 5
+
+  # [[menu.main]]
+  #   name = 'Categories'
+  #   url = 'categories/'
+  #   weight = 6
+
+[params]
+  description = 'Ph.D. student in Computer Science at Georgia Tech'
+  footer = '&copy; Siyang Shao {Year} | Powered by [Hugo](https://gohugo.io)'
+
+[markup]
+  [markup.highlight]
+    codeFences = false
+
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        block = [["\\[", "\\]"], ["$$", "$$"]]
+        inline = [["\\(", "\\)"]]
