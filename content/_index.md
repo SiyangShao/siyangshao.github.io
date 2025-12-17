@@ -9,12 +9,14 @@ title: Home
   </div>
 </div>
 
-I'm a first-year Ph.D. student in Computer Science at Georgia Tech, working with [Assistant Professor Francisco Romero](https://www.franciscoaromero.com/). My research focuses on the efficient deployment of LLM systems. I am familiar with LLM inference optimization and have broad interests in heterogeneous hardware platforms.
+I'm a first-year Ph.D. student in Computer Science at Georgia Tech. My research focuses on systems / systems for Machine Learning. I am familiar with LLM inference optimization and have broad interests in heterogeneous hardware platforms.
 
 ## Contact
+- Academic Email: <sshao@gatech.edu>
+- Personal Email: <siyang.shao@outlook.com>
+- GitHub: [SiyangShao](https://github.com/SiyangShao)
+- LinkedIn: [in/shaosy](https://www.linkedin.com/in/shaosy/)
 - Telegram: [@siyangshao](https://t.me/siyangshao)
-- Email: <siyang.shao@outlook.com>
-- School Email: <sshao@gatech.edu>
 
 ## Education
 - Ph.D. student in Computer Science, Georgia Institute of Technology, Atlanta, United States, Aug 2025 – Present
@@ -24,8 +26,6 @@ I'm a first-year Ph.D. student in Computer Science at Georgia Tech, working with
 - Software Engineer Intern, Jane Street, Hong Kong SAR, May 2025 – Jul 2025
 - Software Engineer Intern, TikTok, Singapore, Jan 2024 – May 2024
 
-## Quick Links
-- [GitHub](https://github.com/SiyangShao)
-- [LinkedIn](https://www.linkedin.com/in/shaosy/)
+## Resume 
 - [Resume (English)](/resume/main.pdf)
-- [Resume (中文)](/resume/main_cn.pdf)
+- [Resume (Chinese)](/resume/main_cn.pdf)
