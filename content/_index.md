@@ -23,9 +23,9 @@ I'm a first-year Ph.D. student in Computer Science at Georgia Tech. My research 
 - Bachelor of Engineering in Computer Engineering, Nanyang Technological University, Singapore, Aug 2021 – Jun 2025
 
 ## Industry Experience
-- (Estimated) Ph.D. Software Engineer Intern, Tiktok, San Jose, United States, May 2026 - Aug 2026
-- Software Engineer Intern, Jane Street, Hong Kong SAR, May 2025 – Jul 2025
-- Software Engineer Intern, TikTok, Singapore, Jan 2024 – May 2024
+- (Estimated) Ph.D. Software Engineer Intern, Tiktok, Recommendation Infra, San Jose, United States, May 2026 - Aug 2026
+- Software Engineer Intern, Jane Street, Core Infra, Hong Kong SAR, May 2025 – Jul 2025
+- Software Engineer Intern, TikTok, Video Infra, Singapore, Jan 2024 – May 2024
 
 ## Resume 
 - [Resume (English)](/resume/main.pdf)
