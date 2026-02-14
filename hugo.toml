@@ -1,4 +1,4 @@
-baseURL = 'https://siyangshao.github.io/'
+baseURL = 'https://siyangshao.com/'
 languageCode = 'en-us'
 title = 'Siyang Shao'
 theme = 'hugo-xmin'
