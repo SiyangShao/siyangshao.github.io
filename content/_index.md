@@ -23,8 +23,18 @@ I'm a first-year Ph.D. student in Computer Science at Georgia Tech. My research 
 - Bachelor of Engineering in Computer Engineering, Nanyang Technological University, Singapore, Aug 2021 – Jun 2025
 
 ## Industry Experience
-- Software Engineer Intern, Jane Street, Core Infra, Hong Kong SAR, May 2025 – Jul 2025
-- Software Engineer Intern, TikTok, Video Infra, Singapore, Jan 2024 – May 2024
+- Software Engineer Intern, **Jane Street**, Core Infra, Hong Kong SAR, May 2025 – Jul 2025
+- Software Engineer Intern, **TikTok**, Video Infra, Singapore, Jan 2024 – May 2024
+
+## Open Source Contributions
+- [**ServerlessLLM**](https://github.com/ServerlessLLM/ServerlessLLM) | Maintainer & Core Contributor (600+ stars)
+
+## Competitions
+- [ICPC](https://icpc.global/ICPCID/B15T259WIX3C) (International Collegiate Programming Contest)
+  - **Ranked 24th**, ICPC Asia Pacific Championship, 2025
+  - **Ranked 22nd**, ICPC Asia Pacific Championship, 2024
+  - **Ranked 2nd, Silver Medal**, ICPC Asia Manila Regional, 2022
+
 
 ## Resume 
 - [Resume (English)](/resume/main.pdf)
