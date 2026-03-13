@@ -13,7 +13,7 @@ I'm a first-year Ph.D. student in Computer Science at Georgia Tech. My research 
 
 ## Contact
 - Academic Email: <sshao@gatech.edu>
-- Personal Email: <siyang.shao@outlook.com>
+- Personal Email: <siyangshao@gmail.com>
 - GitHub: [SiyangShao](https://github.com/SiyangShao)
 - LinkedIn: [in/shaosy](https://www.linkedin.com/in/shaosy/)
 - Telegram: [@siyangshao](https://t.me/siyangshao)
