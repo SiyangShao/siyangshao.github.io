@@ -3,7 +3,7 @@ title: Home
 ---
 
 <div style="display:flex;flex-wrap:wrap;align-items:center;gap:1.5rem;margin-bottom:1.5rem;">
-  <img src="/images/image.jpeg" alt="Siyang Shao" style="max-width:200px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.15);" />
+  <img id="site-avatar" src="/images/image.jpeg" alt="Siyang Shao" style="max-width:200px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.15);user-select:none;-webkit-user-drag:none;" />
   <div>
     <h1 style="margin:0 0 0.5rem 0;">Siyang Shao</h1>
   </div>
@@ -39,3 +39,37 @@ I'm a first-year Ph.D. student in Computer Science at Georgia Tech. My research 
 ## Resume 
 - [Resume (English)](/resume/main.pdf)
 - [Resume (Chinese)](/resume/main_cn.pdf)
+
+<script>
+(function () {
+  const motto = "所以千錯萬錯都是我的錯; 你是如此傾城又傾國";
+  console.log("%c" + motto, "font-size:14px;color:#888;font-family:serif;");
+
+  const avatar = document.getElementById("site-avatar");
+  if (!avatar) return;
+  avatar.style.cursor = "pointer";
+
+  let clicks = 0;
+  let timer;
+  avatar.addEventListener("click", function () {
+    clicks++;
+    clearTimeout(timer);
+    timer = setTimeout(function () { clicks = 0; }, 1500);
+    if (clicks >= 5) {
+      clicks = 0;
+      reveal();
+    }
+  });
+
+  function reveal() {
+    const prev = document.getElementById("motto-egg");
+    if (prev) prev.remove();
+    const el = document.createElement("p");
+    el.id = "motto-egg";
+    el.textContent = motto;
+    el.style.cssText = "opacity:0;transition:opacity 1.2s ease;margin:1rem 0;";
+    avatar.parentElement.insertAdjacentElement("afterend", el);
+    requestAnimationFrame(function () { el.style.opacity = "1"; });
+  }
+})();
+</script>
