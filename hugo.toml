@@ -45,7 +45,7 @@ enableRobotsTXT = true
   #   weight = 6
 
 [params]
-  description = 'Ph.D. student in Computer Science at Georgia Tech'
+  description = ''
   footer = '&copy; Siyang Shao {Year} | Powered by [Hugo](https://gohugo.io)'
 
 [markup]

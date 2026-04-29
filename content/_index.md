@@ -9,7 +9,7 @@ title: Home
   </div>
 </div>
 
-I'm a first-year Ph.D. student in Computer Science at Georgia Tech. My research focuses on systems / systems for Machine Learning. I am familiar with LLM inference optimization and have broad interests in heterogeneous hardware platforms.
+I'm studying Computer Science at Georgia Institute of Technology. I am familiar with LLM inference optimization and have broad interests in heterogeneous hardware platforms.
 
 ## Contact
 - Academic Email: <sshao@gatech.edu>
@@ -19,7 +19,7 @@ I'm a first-year Ph.D. student in Computer Science at Georgia Tech. My research 
 - Telegram: [@siyangshao](https://t.me/siyangshao)
 
 ## Education
-- Ph.D. student in Computer Science, Georgia Institute of Technology, Atlanta, United States, Aug 2025 – Present
+- <span id="ms-entry" style="user-select:none;">M.S. in Computer Science, Georgia Institute of Technology, Atlanta, United States, Aug 2025 – Present</span>
 - Bachelor of Engineering in Computer Engineering, Nanyang Technological University, Singapore, Aug 2021 – Jun 2025
 
 ## Industry Experience
@@ -27,7 +27,7 @@ I'm a first-year Ph.D. student in Computer Science at Georgia Tech. My research 
 - Software Engineer Intern, TikTok, Video Infra, Singapore, Jan 2024 – May 2024
 
 ## Open Source Contributions
-- [**ServerlessLLM**](https://github.com/ServerlessLLM/ServerlessLLM) | Maintainer & Core Contributor (600+ stars)
+- [ServerlessLLM](https://github.com/ServerlessLLM/ServerlessLLM) | Maintainer & Core Contributor (600+ stars)
 
 ## Competitions
 - [ICPC](https://icpc.global/ICPCID/B15T259WIX3C) (International Collegiate Programming Contest)
@@ -68,6 +68,22 @@ I'm a first-year Ph.D. student in Computer Science at Georgia Tech. My research 
     el.textContent = motto;
     el.style.cssText = "opacity:0;transition:opacity 1.2s ease;margin:1rem 0;";
     avatar.parentElement.insertAdjacentElement("afterend", el);
+    requestAnimationFrame(function () { el.style.opacity = "1"; });
+  }
+
+  const msEntry = document.getElementById("ms-entry");
+  if (msEntry) {
+    msEntry.addEventListener("click", revealMs);
+  }
+
+  function revealMs() {
+    const prev = document.getElementById("ms-egg");
+    if (prev) prev.remove();
+    const el = document.createElement("span");
+    el.id = "ms-egg";
+    el.textContent = " — I decided to drop out of the Ph.D. program. It's too late to have a system Ph.D.";
+    el.style.cssText = "opacity:0;transition:opacity 1.2s ease;font-style:italic;color:#888;";
+    msEntry.insertAdjacentElement("afterend", el);
     requestAnimationFrame(function () { el.style.opacity = "1"; });
   }
 })();
