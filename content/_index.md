@@ -23,6 +23,7 @@ I'm studying Computer Science at Georgia Institute of Technology. I am familiar 
 - Bachelor of Engineering in Computer Engineering, Nanyang Technological University, Singapore, Aug 2021 – Jun 2025
 
 ## Industry Experience
+- Software Engineer Intern, Tiktok, Recommendation Infra, San Jose, United States, May 2026 - Aug 2026 (est.)
 - Software Engineer Intern, Jane Street, Core Infra, Hong Kong SAR, May 2025 – Jul 2025
 - Software Engineer Intern, TikTok, Video Infra, Singapore, Jan 2024 – May 2024
 
@@ -31,13 +32,14 @@ I'm studying Computer Science at Georgia Institute of Technology. I am familiar 
 
 ## Competitions
 - [ICPC](https://icpc.global/ICPCID/B15T259WIX3C) (International Collegiate Programming Contest)
+  - Ranked 2nd, Silver Medal, ICPC Asia Manila Regional, 2022
   - Ranked 24th, ICPC Asia Pacific Championship, 2025
   - Ranked 22nd, ICPC Asia Pacific Championship, 2024
-  - Ranked 2nd, Silver Medal, ICPC Asia Manila Regional, 2022
 
 
 ## Resume 
 - [Resume](/resume/main.pdf)
+- [Resume (cn)](/resume/main_cn.pdf)
 
 <script>
 (function () {
@@ -81,7 +83,7 @@ I'm studying Computer Science at Georgia Institute of Technology. I am familiar 
     if (prev) prev.remove();
     const el = document.createElement("span");
     el.id = "ms-egg";
-    el.textContent = " — I decided to drop out of the Ph.D. program. It's too late to have a system Ph.D.";
+    el.innerHTML = "<br> — I decided to drop out of the Ph.D. program. It's too late to have a system Ph.D.";
     el.style.cssText = "opacity:0;transition:opacity 1.2s ease;font-style:italic;color:#888;";
     msEntry.insertAdjacentElement("afterend", el);
     requestAnimationFrame(function () { el.style.opacity = "1"; });
