@@ -9,7 +9,7 @@ title: Home
   </div>
 </div>
 
-I'm studying Computer Science at Georgia Institute of Technology. I am familiar with LLM inference optimization and have broad interests in heterogeneous hardware platforms.
+I'm studying Computer Science at Georgia Institute of Technology. I am familiar with LLM inference optimization and CUDA. 
 
 ## Contact
 - Academic Email: <sshao@gatech.edu>
