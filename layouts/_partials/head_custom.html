@@ -1,3 +1,20 @@
 <style>
   .menu { text-align: right; }
+
+  /* 菜单项之间留出间距,避免挤在一起 */
+  .menu li { margin-left: 0.5em; }
+  .menu li:first-child { margin-left: 0; }
+
+  /* 更清爽的胶囊样式 */
+  .menu a {
+    background: #f4f2f7;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.95em;
+    transition: background 0.18s ease, color 0.18s ease;
+  }
+  .menu a:hover {
+    background: #531c8f;
+    color: #fff;
+  }
 </style>
