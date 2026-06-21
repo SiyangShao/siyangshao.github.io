@@ -20,7 +20,7 @@ I'm studying Computer Science at Georgia Institute of Technology. I am familiar 
 
 ## Education
 - <span id="ms-entry" style="user-select:none;">M.S. in Computer Science, Georgia Institute of Technology, Atlanta, United States, Aug 2025 – Present</span>
-- Bachelor of Engineering in Computer Engineering, Nanyang Technological University, Singapore, Aug 2021 – Jun 2025
+- B.Eng. in Computer Engineering, Nanyang Technological University, Singapore, Aug 2021 – Jun 2025
 
 ## Industry Experience
 - Software Engineer Intern, Tiktok, Recommendation Infra, San Jose, United States, May 2026 - Aug 2026 (est.)
