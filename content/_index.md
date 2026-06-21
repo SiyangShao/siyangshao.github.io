@@ -37,9 +37,9 @@ I'm studying Computer Science at Georgia Institute of Technology. I am familiar 
   - Ranked 22nd, ICPC Asia Pacific Championship, 2024
 
 
-## Resume 
+<!-- ## Resume 
 - [Resume](/resume/main.pdf)
-- [Resume (cn)](/resume/main_cn.pdf)
+- [Resume (cn)](/resume/main_cn.pdf) -->
 
 <script>
 (function () {
